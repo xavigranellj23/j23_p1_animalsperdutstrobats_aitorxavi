@@ -1,0 +1,26 @@
+<!--Mostrar los datos de la BD de razas en el select-->
+    <label for="nombre">Raza:</label><br/><br/>
+    <select name="raca">
+    <option value="0">Selecciona..</option>
+        <?php
+            $con = mysqli_connect('localhost', 'root', 'DAW22015', 'BD_botiga_animals');
+            $sql = "SELECT raca_nom FROM tbl_raca ORDER BY raca_nom ASC";
+            $query = mysqli_query($con,$sql);
+            if(mysqli_num_rows($query)>0){
+                while($raza=mysqli_fetch_array($query)){
+                    $valor = $raza['raca_nom'];
+                    echo "<option value='$valor'>".utf8_encode($valor)."</option>";
+                }
+            }
+        ?>
+		</select>
+
+        //Filtro de seleccion raza animal
+            if(isset($_REQUEST['raca'])) {
+                $raca = utf8_encode($_REQUEST['raca']);
+                
+                $sql.= "&& tbl_raca.raca_nom='$raca' ";
+            }
+        
+
+        echo "<b>Raza:</b> $prod[raca_nom]<br/>";

@@ -1,0 +1,122 @@
+/* Aplicar un diseño a la caja (BOX) para todos los elementos , pero permitiendo que los componentes cambien /html*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  
+  color: #384047;
+}
+
+/*estilo del BOX de formulario*/
+form {
+  max-width: 550px;
+  margin: 10px auto;
+  border-radius: 8px;
+  background: #f4f7f8;
+  padding-left: 20px;
+  font-size: 16px;
+}
+label{
+font-weight:  Bold;
+}
+/*estilo de titulo FORMULARIO*/
+h1 {
+ font-weight:  Bold;
+  text-align: center;
+  padding-left: 40px;
+  font-size: 26px;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 20px;
+}
+
+/*Formato y estilo del boton Submit y reset*/
+input[type="submit"],
+input[type="reset"]{
+  color: #FFF;
+  background-color: #000000;;
+  font-size: 14px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 49%;
+}
+
+/*Estilo Foco para los capos de texto*/
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+input[type=date]:focus,
+input[type=checkbox]:focus,
+input[type=radio]:focus,
+textarea:focus{
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+/*Estilo de foco para el campo de tipo select*/
+select:focus{
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}    
+ 
+ /*Añadir el icono de Obligatorio en los campos input(text) y textoarea*/
+input:required, 
+textarea:required {
+    background: #fff url(red_asterisk.png) no-repeat 98% center;
+}
+
+.contact_form input,
+.contact_form textarea { /* add this to the already existing style */
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+.contact_form input,
+.contact_form textarea {
+    
+}
+
+.contact_form input:focus:invalid,
+.contact_form textarea:focus:invalid { /* when a field is considered invalid by the browser */
+    background: #fff url(invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+.contact_form input:required:valid,
+.contact_form textarea:required:valid { /* when a field is considered valid by the browser */
+    background: #fff url(valid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+
+.contact_form input:focus +  {display: inline;}
+.contact_form input:required:valid +  {background: #28921f;} /* Cambia de color cuando el formato es correcto */
+
